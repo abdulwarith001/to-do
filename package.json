@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node app.js"
   },
-  "author": "",
+  "author": "Abdulwahab Abdulwarith Ggbolahan",
   "license": "ISC",
   "description": "",
   "dependencies": {
@@ -17,6 +17,6 @@
     "mongoose": "^5.11.10"
   },
   "engines": {
-    "node": "14x"
+    "node": "14.x"
   }
 }
