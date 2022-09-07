@@ -15,10 +15,20 @@ app.use(express.static("./public"));
 app.use(incorrectRoute)
 //middleware to use custom error handler
 app.use(errorHandler)
+const port = process.env.PORT || 7000;
+
 const startApp = async () => {
-    await connectDB(process.env.MONGO_URI).then(()=> console.log('Connected to database')).catch((error)=> console.log('could not connect to database'))
+  try {
+    await connectDB(process.env.MONGO_URI)
+      .then(() => {
+        app.listen(port, () =>
+          console.log(`Server is listening on port ${port}`)
+        );
+      })
+      .catch((error) => console.error("Could not connect..."));
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 startApp()
-const PORT = 5000;
-app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
